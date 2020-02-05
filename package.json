@@ -1,7 +1,7 @@
 {
-    "name": "vue-link",
+    "name": "vue-widget-link",
     "version": "1.0.0",
-    "description": "Vue link http methods",
+    "description": "Vue Widget Link",
     "author": {
         "name": "Igor Maliy",
         "role": "Project lead",
