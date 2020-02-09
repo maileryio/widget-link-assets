@@ -6,6 +6,6 @@
 
 <script>
   export default {
-    name: 'dual-listbox'
+    name: 'vue-widget-link'
   };
 </script>

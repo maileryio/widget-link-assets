@@ -1,4 +1,4 @@
-import DualListbox from './components/DualListbox.vue';
+import component from './components/Link.vue';
 import store from './store';
 
 export function install(Vue, options) {
@@ -10,26 +10,28 @@ export function install(Vue, options) {
     throw new Error('Please initialise plugin with a Vuex store.');
   }
 
-  options.store.registerModule(DualListbox.name, store);
-  Vue.component(DualListbox.name, DualListbox);
+  options.store.registerModule(component.name, store);
+  Vue.component(component.name, component);
 
   install.installed = true;
 }
 
 const plugin = {
   install,
-  DualListbox
+  component
 };
 
-let GlobalVue = null;
+let Vue = null;
 if (typeof window !== 'undefined') {
-  GlobalVue = window.Vue;
+  Vue = window.Vue;
 } else if (typeof global !== 'undefined') {
-  GlobalVue = global.Vue;
+  Vue = global.Vue;
 }
 
-if (GlobalVue) {
-  GlobalVue.use(plugin);
+console.log(Vue);
+
+if (Vue) {
+  Vue.use(plugin);
 }
 
 export default plugin;
