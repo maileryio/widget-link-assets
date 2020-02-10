@@ -6,7 +6,7 @@
 //
 
 var script = {
-  name: 'dual-listbox'
+  name: 'vue-widget-link'
 };
 
 function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
@@ -83,7 +83,6 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
     }
     return script;
 }
-//# sourceMappingURL=normalize-component.mjs.map
 
 /* script */
 var __vue_script__ = script;
@@ -160,20 +159,20 @@ function install(Vue, options) {
 
 var plugin = {
   install: install,
-  DualListbox: __vue_component__
+  component: __vue_component__
 };
 
-var GlobalVue = null;
+var Vue = null;
 if (typeof window !== 'undefined') {
-  GlobalVue = window.Vue;
+  Vue = window.Vue;
 } else if (typeof global !== 'undefined') {
-  GlobalVue = global.Vue;
+  Vue = global.Vue;
 }
 
-console.log(GlobalVue);
+console.log(Vue);
 
-if (GlobalVue) {
-  GlobalVue.use(plugin);
+if (Vue) {
+  Vue.use(plugin);
 }
 
 export default plugin;

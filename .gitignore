@@ -1,0 +1,22 @@
+# IDE & OS files
+.*.swp
+.DS_Store
+.buildpath
+.idea
+.project
+.settings
+Thumbs.db
+nbproject
+
+# SCV
+.subversion
+
+#npm && yarn
+.config
+.npm
+node_modules
+yarn.lock
+package.lock
+
+# self generated files
+coverage

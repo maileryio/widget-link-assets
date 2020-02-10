@@ -26,5 +26,9 @@
         "indent": "off"
       }
     }
+  ],
+  "ignorePatterns": [
+    "dist/",
+    "node_modules/"
   ]
 }

@@ -6,20 +6,20 @@ import { eslint } from 'rollup-plugin-eslint';
 export default {
   input: 'src/index.js',
   output: {
-    name: 'VueLink',
+    name: 'VueWidgetLink',
     exports: 'named'
   },
   plugins: [
     eslint({
       exclude: [
-        'src/styles/**',
+        'src/styles/**'
       ]
     }),
     commonjs(),
     vue({
-        css: true,
-        compileTemplate: true,
+      css: true,
+      compileTemplate: true
     }),
     buble()
-  ],
+  ]
 };

@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = global || self, factory(global.VueLink = {}));
+  (global = global || self, factory(global.VueWidgetLink = {}));
 }(this, (function (exports) { 'use strict';
 
   //
@@ -12,7 +12,7 @@
   //
 
   var script = {
-    name: 'dual-listbox'
+    name: 'vue-widget-link'
   };
 
   function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
@@ -89,7 +89,6 @@
       }
       return script;
   }
-  //# sourceMappingURL=normalize-component.mjs.map
 
   /* script */
   var __vue_script__ = script;
@@ -166,20 +165,20 @@
 
   var plugin = {
     install: install,
-    DualListbox: __vue_component__
+    component: __vue_component__
   };
 
-  var GlobalVue = null;
+  var Vue = null;
   if (typeof window !== 'undefined') {
-    GlobalVue = window.Vue;
+    Vue = window.Vue;
   } else if (typeof global !== 'undefined') {
-    GlobalVue = global.Vue;
+    Vue = global.Vue;
   }
 
-  console.log(GlobalVue);
+  console.log(Vue);
 
-  if (GlobalVue) {
-    GlobalVue.use(plugin);
+  if (Vue) {
+    Vue.use(plugin);
   }
 
   exports.default = plugin;
