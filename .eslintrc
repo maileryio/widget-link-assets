@@ -1,8 +1,12 @@
 {
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "mocha": true
   },
+  "plugins": [
+    "eslint-plugin-chai-friendly"
+  ],
   "extends": [
     "standard",
     "eslint:recommended",
@@ -17,7 +21,9 @@
     "indent"               : ["error", 2],
     "space-before-function-paren": ["error", "never"],
     "vue/name-property-casing"   : ["error", "kebab-case"],
-    "vue/script-indent"          : ["error", 2, { "baseIndent": 1 }]
+    "vue/script-indent"          : ["error", 2, { "baseIndent": 1 }],
+    "no-unused-expressions"              : 0,
+    "chai-friendly/no-unused-expressions": 2
   },
   "overrides": [
     {
