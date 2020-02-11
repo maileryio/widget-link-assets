@@ -1,6 +1,6 @@
 {
   "name": "@maileryio/vue-widget-link",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vue Widget Link",
   "license": "BSD-3-Clause",
   "main": "dist/main.umd.js",
@@ -15,7 +15,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "cov": "echo \"Error: no codecov specified\" && exit 1",
     "ci": "npm run lint && npm run cov",
-    "release": "np",
+    "deploy": "np",
     "test:unit": "vue-cli-service test:unit test/**/*.test.js",
     "build": "yarn run build:umd & yarn run build:es & yarn run build:unpkg",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/main.umd.js",
@@ -52,7 +52,10 @@
     "version": "8, 9"
   },
   "np": {
-    "yarn": false
+    "yarn": true
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
