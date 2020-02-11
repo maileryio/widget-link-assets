@@ -15,8 +15,7 @@ nbproject
 .config
 .npm
 node_modules
-package.lock
-yarn.lock
+npm-debug.log
 yarn-error.log
 
 # self generated files

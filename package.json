@@ -15,6 +15,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "cov": "echo \"Error: no codecov specified\" && exit 1",
     "ci": "npm run lint && npm run cov",
+    "release": "np",
     "test:unit": "vue-cli-service test:unit test/**/*.test.js",
     "build": "yarn run build:umd & yarn run build:es & yarn run build:unpkg",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/main.umd.js",
@@ -36,6 +37,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.1.2",
+    "np": "^6.0.0",
     "rollup": "^1.31.0",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -48,6 +50,9 @@
   },
   "ci": {
     "version": "8, 9"
+  },
+  "np": {
+    "yarn": false
   },
   "repository": {
     "type": "git",
