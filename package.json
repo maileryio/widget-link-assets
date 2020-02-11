@@ -15,7 +15,6 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "cov": "echo \"Error: no codecov specified\" && exit 1",
     "ci": "npm run lint && npm run cov",
-    "deploy": "npm publish --access public",
     "test:unit": "vue-cli-service test:unit test/**/*.test.js",
     "build": "yarn run build:umd & yarn run build:es & yarn run build:unpkg",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/main.umd.js",
