@@ -1,4 +1,11 @@
+.babelrc
+.browserslistrc
+.editorconfig
+.eslintrc
+.gitignore
 .npmignore
+.travis.yml
 build
+src
 test
 node_modules
