@@ -1,4 +1,4 @@
-import mailery from '@maileryio/mailery-backend-assets';
+import mailery from '@maileryio/mailery-assets';
 import component from './components/Link.vue';
 import store from './store';
 
