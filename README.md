@@ -1,22 +1,22 @@
-# Vue Widget Link
+# Mailery Widget Link Assets
 
-**Vue Widget Link**
+**Mailery Widget Link Assets**
 
 [![Latest Stable Version][npm-image]][npm-url]
 [![Total Downloads][download-image]][download-url]
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][codecov-image]][codecov-url]
 
-[npm-image]: https://img.shields.io/npm/v/@maileryio/vue-widget-link.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/@maileryio/vue-widget-link
-[download-image]: https://img.shields.io/npm/dm/@maileryio/vue-widget-link.svg?style=flat-square
-[download-url]: https://npmjs.org/package/@maileryio/vue-widget-link
-[travis-image]: https://travis-ci.com/maileryio/vue-widget-link.svg?branch=master
-[travis-url]: https://travis-ci.com/maileryio/vue-widget-link
-[codecov-image]: https://img.shields.io/codecov/c/github/hubcarl/@maileryio/vue-widget-link.svg?style=flat-square
-[codecov-url]: https://codecov.io/github/hubcarl/@maileryio/vue-widget-link?branch=master
+[npm-image]: https://img.shields.io/npm/v/@maileryio/widget-link-assets.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/@maileryio/widget-link-assets
+[download-image]: https://img.shields.io/npm/dm/@maileryio/widget-link-assets.svg?style=flat-square
+[download-url]: https://npmjs.org/package/@maileryio/widget-link-assets
+[travis-image]: https://travis-ci.com/maileryio/widget-link-assets.svg?branch=master
+[travis-url]: https://travis-ci.com/maileryio/widget-link-assets
+[codecov-image]: https://img.shields.io/codecov/c/github/hubcarl/@maileryio/widget-link-assets.svg?style=flat-square
+[codecov-url]: https://codecov.io/github/hubcarl/@maileryio/widget-link-assets?branch=master
 
-Vue Widget Link
+Mailery Widget Link Assets
 
 ## Installation
 
@@ -25,13 +25,13 @@ The preferred way to install this library is through [yarn](https://yarnpkg.com/
 Either run
 
 ```sh
-yarn add @maileryio/vue-widget-link
+yarn add @maileryio/widget-link-assets
 ```
 
 or add
 
 ```json
-"@maileryio/vue-widget-link": "*"
+"@maileryio/widget-link-assets": "*"
 ```
 
 to the dependencies section of your package.json.
