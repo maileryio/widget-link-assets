@@ -1,7 +1,7 @@
 {
-  "name": "@maileryio/vue-widget-link",
+  "name": "@maileryio/widget-link-assets",
   "version": "1.0.6",
-  "description": "Vue Widget Link",
+  "description": "Mailery Widget Link Assets",
   "license": "BSD-3-Clause",
   "main": "dist/main.umd.js",
   "module": "dist/main.esm.js",
@@ -24,7 +24,7 @@
     "build:umd:min": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format umd --file dist/main.umd.min.js"
   },
   "dependencies": {
-    "@maileryio/mailery-backend-assets": "^1.0.2",
+    "@maileryio/mailery-assets": "git+ssh://git@github.com:maileryio/mailery-assets.git#master",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -61,10 +61,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maileryio/vue-widget-link.git"
+    "url": "git+https://github.com/maileryio/widget-link-assets.git"
   },
   "bugs": {
-    "url": "https://github.com/maileryio/vue-widget-link/issues"
+    "url": "https://github.com/maileryio/widget-link-assets/issues"
   },
-  "homepage": "https://github.com/maileryio/vue-widget-link#readme"
+  "homepage": "https://github.com/maileryio/widget-link-assets#readme"
 }
