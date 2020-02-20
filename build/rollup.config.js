@@ -13,10 +13,9 @@ const isProd = env === 'production';
 export default (async () => ({
   input: 'src/index.js',
   output: {
-    name: 'mailery.widget.link',
+    name: 'widget.link',
     exports: 'named',
     globals: {
-      '@maileryio/mailery-backend-assets': 'mailery',
       'bootstrap-vue': 'BootstrapVue',
       'vue': 'Vue',
       'vuex': 'Vuex'
@@ -24,7 +23,6 @@ export default (async () => ({
     sourcemap: true
   },
   external: [
-    'mailery',
     'bootstrap-vue',
     'vue',
     'vuex'

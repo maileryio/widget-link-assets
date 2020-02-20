@@ -24,7 +24,6 @@
     "build:umd:min": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format umd --file dist/main.umd.min.js"
   },
   "dependencies": {
-    "@maileryio/mailery-assets": "git+ssh://git@github.com:maileryio/mailery-assets.git#master",
     "vue": "^2.6.11"
   },
   "devDependencies": {
