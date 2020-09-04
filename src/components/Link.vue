@@ -5,6 +5,10 @@
 </template>
 
 <script>
+  const getCsrfToken = () => {
+    return window.document.querySelector('meta[name="csrf"]').getAttribute('content');
+  };
+
   export default {
     name: 'ui-widget-link',
     props: {
@@ -37,7 +41,8 @@
           {
             method,
             headers: {
-                'Content-Type': 'application/json; charset=utf-8'
+                'Content-Type': 'application/json; charset=utf-8',
+                'X-CSRF-Token': getCsrfToken()
             },
             mode: 'cors',
             credentials: 'include'

@@ -5,6 +5,10 @@
 //
 //
 
+var getCsrfToken = function () {
+  return window.document.querySelector('meta[name="csrf"]').getAttribute('content');
+};
+
 var script = {
   name: 'ui-widget-link',
   props: {
@@ -21,11 +25,11 @@ var script = {
     },
   },
   methods: {
-    handleClick: function handleClick() {console.log(this.$props);
+    handleClick: function handleClick() {
       var ref = this.$props;
-    var href = ref.href;
-    var method = ref.method;
-    var confirm = ref.confirm;
+      var href = ref.href;
+      var method = ref.method;
+      var confirm = ref.confirm;
 
       if (['PUT', 'DELETE'].indexOf(method.toUpperCase()) === -1) {
         return;
@@ -40,7 +44,8 @@ var script = {
         {
           method: method,
           headers: {
-              'Content-Type': 'application/json; charset=utf-8'
+              'Content-Type': 'application/json; charset=utf-8',
+              'X-CSRF-Token': getCsrfToken()
           },
           mode: 'cors',
           credentials: 'include'
