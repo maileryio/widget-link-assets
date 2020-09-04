@@ -6,7 +6,11 @@
 
 <script>
   const getCsrfToken = () => {
-    return window.document.querySelector('meta[name="csrf"]').getAttribute('content');
+    const meta = window.document.querySelector('meta[name="csrf"]');
+    if (!!meta) {
+        return meta.getAttribute('content');
+    }
+    return null;
   };
 
   export default {

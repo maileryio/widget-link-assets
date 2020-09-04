@@ -6,7 +6,11 @@
 //
 
 var getCsrfToken = function () {
-  return window.document.querySelector('meta[name="csrf"]').getAttribute('content');
+  var meta = window.document.querySelector('meta[name="csrf"]');
+  if (!!meta) {
+      return meta.getAttribute('content');
+  }
+  return null;
 };
 
 var script = {
