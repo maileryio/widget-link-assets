@@ -32,7 +32,7 @@
       handleClick() {
         const { href, method, confirm } = this.$props;
 
-        if (['PUT', 'DELETE'].indexOf(method.toUpperCase()) === -1) {
+        if (['POST', 'PUT', 'DELETE'].indexOf(method.toUpperCase()) === -1) {
           return;
         }
 

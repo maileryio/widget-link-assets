@@ -41,7 +41,7 @@
         var method = ref.method;
         var confirm = ref.confirm;
 
-        if (['PUT', 'DELETE'].indexOf(method.toUpperCase()) === -1) {
+        if (['POST', 'PUT', 'DELETE'].indexOf(method.toUpperCase()) === -1) {
           return;
         }
 
@@ -188,7 +188,7 @@
     
 
     
-    var __vue_component__ = normalizeComponent(
+    var __vue_component__ = /*#__PURE__*/normalizeComponent(
       { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
       __vue_inject_styles__,
       __vue_script__,
