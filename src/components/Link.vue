@@ -5,28 +5,14 @@
 </template>
 
 <script>
-  const getCsrfToken = () => {
-    const meta = window.document.querySelector('meta[name="csrf"]');
-    if (!!meta) {
-        return meta.getAttribute('content');
-    }
-    return null;
-  };
-
   export default {
     name: 'ui-widget-link',
     props: {
-      href: {
-        type: String
-      },
-      method: {
-        type: String,
-        default: 'get'
-      },
-      confirm: {
-        type: String,
-        default: null
-      },
+      href: 'String',
+      method: 'String',
+      confirm: 'String',
+      csrfValue: 'String',
+      csrfHeaderName: 'String',
     },
     methods: {
       handleClick() {
@@ -46,10 +32,8 @@
             method,
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
-                'X-CSRF-Token': getCsrfToken()
-            },
-            mode: 'cors',
-            credentials: 'include'
+                [this.csrfHeaderName]: this.csrfValue
+            }
           }
         )
         .then(res => {

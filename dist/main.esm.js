@@ -5,31 +5,19 @@
 //
 //
 
-var getCsrfToken = function () {
-  var meta = window.document.querySelector('meta[name="csrf"]');
-  if (!!meta) {
-      return meta.getAttribute('content');
-  }
-  return null;
-};
-
 var script = {
   name: 'ui-widget-link',
   props: {
-    href: {
-      type: String
-    },
-    method: {
-      type: String,
-      default: 'get'
-    },
-    confirm: {
-      type: String,
-      default: null
-    },
+    href: 'String',
+    method: 'String',
+    confirm: 'String',
+    csrfValue: 'String',
+    csrfHeaderName: 'String',
   },
   methods: {
     handleClick: function handleClick() {
+      var obj;
+
       var ref = this.$props;
       var href = ref.href;
       var method = ref.method;
@@ -47,12 +35,9 @@ var script = {
         href,
         {
           method: method,
-          headers: {
-              'Content-Type': 'application/json; charset=utf-8',
-              'X-CSRF-Token': getCsrfToken()
-          },
-          mode: 'cors',
-          credentials: 'include'
+          headers: ( obj = {
+              'Content-Type': 'application/json; charset=utf-8'
+          }, obj[this.csrfHeaderName] = this.csrfValue, obj )
         }
       )
       .then(function (res) {
@@ -182,7 +167,7 @@ __vue_render__._withStripped = true;
   
 
   
-  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
