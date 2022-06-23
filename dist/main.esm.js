@@ -7,7 +7,6 @@
 //
 //
 //
-//
 
 var script = {
   name: 'ui-link',
@@ -28,19 +27,26 @@ var script = {
     },
     createRequest: {
       type: Function
+    },
+    beforeRequest: {
+      type: Function,
+      default: function () { return true; }
+    },
+    afterRequest: {
+      type: Function,
+      default: function () {}
     }
   },
-  events: ['before-request', 'after-request'],
   methods: {
     click: function click() {
-      var this$1 = this;
-
       var ref = this.$props;
       var href = ref.href;
       var method = ref.method;
       var confirm = ref.confirm;
       var headers = ref.headers;
       var createRequest = ref.createRequest;
+      var beforeRequest = ref.beforeRequest;
+      var afterRequest = ref.afterRequest;
 
       if (confirm && !window.confirm(confirm)) {
         return false;
@@ -57,11 +63,11 @@ var script = {
 
       Object.entries(headers).forEach(function (entry) { return request.headers.append(entry[0], entry[1]); });
 
-      this.$emit('before-request', request);
-
-      window
-        .fetch(request)
-        .then(function (response) { return this$1.$emit('after-request', response); });
+      if (beforeRequest(request)) {
+        window
+          .fetch(request)
+          .then(function (response) { return afterRequest(response); });
+      }
     }
   }
 };
@@ -152,7 +158,7 @@ var __vue_render__ = function() {
   return _c(
     "b-link",
     {
-      attrs: { href: _vm.href, method: _vm.method, disabled: _vm.disabled },
+      attrs: { href: _vm.href, disabled: _vm.disabled },
       on: {
         click: function($event) {
           $event.stopPropagation();

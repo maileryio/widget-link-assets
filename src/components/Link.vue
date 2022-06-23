@@ -1,7 +1,6 @@
 <template>
   <b-link
     :href="href"
-    :method="method"
     :disabled="disabled"
     @click.stop.prevent="click">
     <slot></slot>
@@ -28,19 +27,22 @@
       },
       createRequest: {
         type: Function
+      },
+      beforeRequest: {
+        type: Function,
+        default: () => true
+      },
+      afterRequest: {
+        type: Function,
+        default: () => {}
       }
     },
-    events: ['before-request', 'after-request'],
     methods: {
       click() {
-        const { href, method, confirm, headers, createRequest } = this.$props;
+        const { href, method, confirm, headers, createRequest, beforeRequest, afterRequest } = this.$props;
 
         if (confirm && !window.confirm(confirm)) {
           return false;
-        }
-
-        if (!createRequest) {
-
         }
 
         const request = !!createRequest
@@ -54,11 +56,11 @@
 
         Object.entries(headers).forEach(entry => request.headers.append(entry[0], entry[1]));
 
-        this.$emit('before-request', request);
-
-        window
-          .fetch(request)
-          .then(response => this.$emit('after-request', response))
+        if (beforeRequest(request)) {
+          window
+            .fetch(request)
+            .then(response => afterRequest(response))
+        }
       }
     }
   }
