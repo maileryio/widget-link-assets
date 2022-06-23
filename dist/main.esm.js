@@ -12,46 +12,56 @@
 var script = {
   name: 'ui-link',
   props: {
-    href: 'String',
-    method: 'String',
-    confirm: 'String',
-    csrfValue: 'String',
-    csrfHeaderName: 'String',
+    href: String,
+    method: {
+      type: String,
+      default: 'GET'
+    },
+    confirm: String,
+    headers: {
+      type: Object,
+      default: {}
+    },
     disabled: {
     	type: Boolean,
     	default: false
+    },
+    createRequest: {
+      type: Function
     }
   },
+  events: ['before-request', 'after-request'],
   methods: {
     click: function click() {
       var this$1 = this;
-      var obj;
 
       var ref = this.$props;
       var href = ref.href;
       var method = ref.method;
       var confirm = ref.confirm;
-
-      if (['POST', 'PUT', 'DELETE'].indexOf(method.toUpperCase()) === -1) {
-        return;
-      }
+      var headers = ref.headers;
+      var createRequest = ref.createRequest;
 
       if (confirm && !window.confirm(confirm)) {
         return false;
       }
 
-      this.$emit('before-request');
+      var request = !!createRequest
+        ? createRequest()
+        : new Request(
+          href,
+          {
+            method: method.toUpperCase()
+          }
+        );
 
-      window.fetch(
-        href,
-        {
-          method: method,
-          headers: ( obj = {
-            'Content-Type': 'application/json; charset=utf-8'
-          }, obj[this.csrfHeaderName] = this.csrfValue, obj )
-        }
-      )
-      .then(function (res) { return this$1.$emit('after-request', res); });
+      Object.entries(headers).forEach(function (entry) { return request.headers.append(entry[0], entry[1]); });
+
+      this.$emit('before-request', request);
+
+      window
+        .fetch(request)
+        .then(function (response) { return this$1.$emit('after-request', response); });
     }
   }
 };
