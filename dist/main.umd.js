@@ -10,6 +10,10 @@
   //
   //
   //
+  //
+  //
+  //
+  //
 
   var script = {
     name: 'ui-widget-link',
@@ -19,9 +23,14 @@
       confirm: 'String',
       csrfValue: 'String',
       csrfHeaderName: 'String',
+      disabled: {
+      	type: Boolean,
+      	default: false
+      }
     },
     methods: {
-      handleClick: function handleClick() {
+      click: function click() {
+        var this$1 = this;
         var obj;
 
         var ref = this.$props;
@@ -37,20 +46,18 @@
           return false;
         }
 
+        this.$emit('before-request');
+
         window.fetch(
           href,
           {
             method: method,
             headers: ( obj = {
-                'Content-Type': 'application/json; charset=utf-8'
+              'Content-Type': 'application/json; charset=utf-8'
             }, obj[this.csrfHeaderName] = this.csrfValue, obj )
           }
         )
-        .then(function (res) {
-          if (res.redirected && res.url) {
-            window.location.href = res.url;
-          }
-        });
+        .then(function (res) { return this$1.$emit('after-request', res); });
       }
     }
   };
@@ -139,14 +146,14 @@
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
     return _c(
-      "a",
+      "b-link",
       {
-        attrs: { href: _vm.href, method: _vm.method },
+        attrs: { href: _vm.href, method: _vm.method, disabled: _vm.disabled },
         on: {
           click: function($event) {
             $event.stopPropagation();
             $event.preventDefault();
-            return _vm.handleClick($event)
+            return _vm.click($event)
           }
         }
       },
