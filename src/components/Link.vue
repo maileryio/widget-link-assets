@@ -10,7 +10,7 @@
 
 <script>
   export default {
-    name: 'ui-widget-link',
+    name: 'ui-link',
     props: {
       href: 'String',
       method: 'String',
